@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @Service
@@ -14,17 +15,23 @@ import java.util.Optional;
 public class DataAnalyzerService {
 
     @Tool(description="to find the strongest animal")
-    public Optional<Animal> getStrongestAnimal(List<Animal> animalList){
-        return animalList.stream().max(Comparator.comparing(Animal::strength));
+    public Map<String, Object> getStrongestAnimal(List<Map<String, Object>> animalList){
+        return animalList.stream()
+                .filter(map -> map.containsKey("strength") && map.get("strength") instanceof Integer)
+                .max(Comparator.comparingInt(map -> (Integer) map.get("strength")))
+                .orElse(null);
     }
 
     @Tool(description="to find the weakest animal")
-    public Optional<Animal> getWeakAnimal(List<Animal> animalList){
-        return animalList.stream().min(Comparator.comparing(Animal::strength));
+    public Map<String, Object> getWeakAnimal(List<Map<String, Object>> animalList){
+        return animalList.stream()
+                .filter(map -> map.containsKey("strength") && map.get("strength") instanceof Integer)
+                .min(Comparator.comparingInt(map -> (Integer) map.get("strength")))
+                .orElse(null);
     }
 
     @Tool(description="to find count of animals")
-    public int totalAnimal(List<Animal> animalList){
+    public int totalAnimal(List<Map<String, Object>> animalList){
         return animalList.size();
     }
 }

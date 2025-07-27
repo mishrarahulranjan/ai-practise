@@ -41,27 +41,26 @@ public class ApiSampleWithFunctionsController {
     }
 
     @GetMapping("/animals/{strength}")
-    List<Animal> getAnimal(@PathVariable String strength) {
+    Animal getAnimal(@PathVariable String strength) {
         PromptTemplate pt = new PromptTemplate("""
-                Find and return the Animal with id strength in a current list of Animal.
+                Find and return the Animal with  {id} strength in a current list of Animal.
                 """);
-        Prompt p = pt.create(Map.of("id", strength));
+        Prompt prompt = pt.create(Map.of("id", strength));
 
-        List<Animal>  animals = aiPromptService.getResponseWithTools(p, new ParameterizedTypeReference<>() {});
-
-        log.info("fetched Animal Entity list {}", animals);
-        return animals;
+        Animal  animal = aiPromptService.getResponseWithTools(prompt, Animal.class);
+        log.info("fetched Animal Entity list {}", animal);
+        return animal;
     }
 
     @GetMapping("/animals/count")
-    List<Animal> getAnimal() {
-        PromptTemplate pt = new PromptTemplate("""
+      int getAnimal() {
+        PromptTemplate promptTemplate = new PromptTemplate("""
                 count the number of animals in a current list of Animal.
                 """);
-        List<Animal>  animals = aiPromptService.getResponseWithTools(pt.create(), new ParameterizedTypeReference<>() {});
+        int  animalCount = aiPromptService.getResponseWithTools(promptTemplate.create(), Integer.class);
 
-        log.info("fetched Animal Entity list {}", animals);
-        return animals;
+        log.info("fetched Animal count from list {}", animalCount);
+        return animalCount;
     }
 
 }

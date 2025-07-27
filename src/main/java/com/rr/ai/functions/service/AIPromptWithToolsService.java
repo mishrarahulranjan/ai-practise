@@ -1,5 +1,6 @@
 package com.rr.ai.functions.service;
 
+import com.rr.ai.functions.model.Animal;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.chat.client.advisor.PromptChatMemoryAdvisor;
 import org.springframework.ai.chat.client.advisor.SimpleLoggerAdvisor;
@@ -25,15 +26,16 @@ public class AIPromptWithToolsService {
         this.dataAnalyzerService = dataAnalyzerService;
     }
 
+
     public <T> List<T> getResponse(Prompt prompt, ParameterizedTypeReference<List<T>> typeReference){
         return this.chatClient.prompt(prompt)
                 .call()
                 .entity(typeReference);
     }
 
-    public <T> List<T> getResponseWithTools(Prompt prompt, ParameterizedTypeReference<List<T>> typeReference){
+    public <T> T  getResponseWithTools(Prompt prompt, Class<T> clazz){
         return this.chatClient.prompt(prompt).tools(dataAnalyzerService)
                 .call()
-                .entity(typeReference);
+                .entity(clazz);
     }
 }
