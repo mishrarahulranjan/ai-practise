@@ -1,0 +1,42 @@
+### test Simple API
+
+### Generate famous Animal details
+GET http://localhost:8080/api/animals
+Accept: application/json
+
+
+### Generate famous Person details
+GET http://localhost:8080/api/persons
+Accept: application/json
+
+
+### result based on chat conversation
+
+### Generate famous Animal details with chat memory
+GET http://localhost:8080/api/advisor/animals
+Accept: application/json
+
+
+### Get Animal by id with with chat memory
+GET http://localhost:8080/api/advisor/animals/1
+Accept: application/json
+
+
+### using tools that LLM can call
+
+### Generate famous Animal details
+GET http://localhost:8080/api/functions/animals
+Accept: application/json
+
+
+### Generate Animal with strength
+GET http://localhost:8080/api/functions/animals/strongest
+Accept: application/json
+
+### Generate Animal with strength
+GET http://localhost:8080/api/functions/animals/weakest
+Accept: application/json
+
+### get the animal count
+GET http://localhost:8080/api/functions/animals/count
+Accept: application/json

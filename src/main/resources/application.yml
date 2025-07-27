@@ -1,0 +1,14 @@
+spring:
+  ai:
+    openai:
+      api-key: abcdef
+    mistralai:
+      api-key: abcded
+      chat:
+        options:
+          model: mistral-large-latest
+    ollama:
+      base-url: http://localhost:11434
+      chat:
+        options:
+          model: llama3.2
