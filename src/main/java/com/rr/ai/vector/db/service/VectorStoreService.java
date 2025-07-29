@@ -42,7 +42,7 @@ public class VectorStoreService {
     public String semanticSearch(String query) {
         String context = vectorStore.similaritySearch(SearchRequest.builder()
                         .query(query)
-                        .topK(3)
+                        .topK(1)
                         .build())
                 .stream()
                 .map(Document::getText)

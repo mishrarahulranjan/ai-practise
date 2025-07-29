@@ -11,7 +11,7 @@ spring:
       base-url: http://localhost:11434
       embedding:
         options:
-          model: llama3.2
+          model: nomic-embed-text
       chat:
         options:
           model: llama3.2
@@ -21,7 +21,7 @@ spring:
         remove-existing-vector-store-table: true
         index-type: HNSW
         distance-type: COSINE_DISTANCE
-        dimension: 3072
+        dimension: 1540
   datasource:
     url: jdbc:postgresql://localhost:5432/postgres
     username: postgres

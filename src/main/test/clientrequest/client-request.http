@@ -48,5 +48,5 @@ GET http://localhost:8080/api/init
 Accept: application/json
 
 ### search using the PG vector context
-GET http://localhost:8080/api/search/java
+GET http://localhost:8080/api/search/java18
 Accept: application/json
