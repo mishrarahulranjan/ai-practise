@@ -9,6 +9,20 @@ spring:
           model: mistral-large-latest
     ollama:
       base-url: http://localhost:11434
+      embedding:
+        options:
+          model: llama3.2
       chat:
         options:
           model: llama3.2
+    vectorstore:
+      pgvector:
+        initialize-schema: true
+        remove-existing-vector-store-table: true
+        index-type: HNSW
+        distance-type: COSINE_DISTANCE
+        dimension: 3072
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: postgres

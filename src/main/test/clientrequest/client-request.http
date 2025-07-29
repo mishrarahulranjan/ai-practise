@@ -40,3 +40,13 @@ Accept: application/json
 ### get the animal count
 GET http://localhost:8080/api/functions/animals/count
 Accept: application/json
+
+### integration with PG vector
+
+### Initialize pgvector db
+GET http://localhost:8080/api/init
+Accept: application/json
+
+### search using the PG vector context
+GET http://localhost:8080/api/search/java
+Accept: application/json
