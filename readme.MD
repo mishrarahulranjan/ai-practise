@@ -14,7 +14,7 @@ Run the following command to check if the Ollama server is running:
 
 
 ==> curl http://localhost:11434
-==> ps e-f | grep ollama
+==> ps -ef | grep ollama
 
 ###pull model ##
 ==> /Applications/Ollama.app/Contents/Resources/ollama pull nomic-embed-text
