@@ -10,6 +10,7 @@ spring:
     ollama:
       base-url: http://localhost:11434
       embedding:
+        enable: true
         options:
           model: nomic-embed-text
       chat:
@@ -21,7 +22,7 @@ spring:
         remove-existing-vector-store-table: true
         index-type: HNSW
         distance-type: COSINE_DISTANCE
-        dimension: 1540
+        dimension: 1536
   datasource:
     url: jdbc:postgresql://localhost:5432/postgres
     username: postgres
