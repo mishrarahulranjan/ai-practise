@@ -19,10 +19,17 @@ spring:
     vectorstore:
       pgvector:
         initialize-schema: true
-        remove-existing-vector-store-table: true
         index-type: HNSW
         distance-type: COSINE_DISTANCE
         dimension: 1536
+    mcp:
+      client:
+        toolcallback:
+          enabled: true
+      sse:
+        connections:
+          my-custom-mcp-server:
+            url: http://localhost:8081
   datasource:
     url: jdbc:postgresql://localhost:5432/postgres
     username: postgres

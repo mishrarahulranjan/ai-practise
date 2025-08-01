@@ -50,3 +50,12 @@ Accept: application/json
 ### search using the PG vector context
 GET http://localhost:8080/api/search/java18
 Accept: application/json
+
+
+### MCP server
+GET http://localhost:8080/api/mcp/book/java8
+Accept: application/json
+
+### search using the PG vector context
+GET http://localhost:8080/api/mcp/person/John
+Accept: application/json
