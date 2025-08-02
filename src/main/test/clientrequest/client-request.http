@@ -53,9 +53,9 @@ Accept: application/json
 
 
 ### MCP server
-GET http://localhost:8080/api/mcp/book/java8
+GET http://localhost:8080/api/mcp/book/chemistry
 Accept: application/json
 
-### search using the PG vector context
+### MCP server
 GET http://localhost:8080/api/mcp/person/John
 Accept: application/json

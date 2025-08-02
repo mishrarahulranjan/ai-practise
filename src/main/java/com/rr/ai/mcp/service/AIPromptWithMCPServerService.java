@@ -1,9 +1,7 @@
 package com.rr.ai.mcp.service;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.ai.chat.client.ChatClient;
-import org.springframework.ai.chat.client.advisor.PromptChatMemoryAdvisor;
-import org.springframework.ai.chat.client.advisor.SimpleLoggerAdvisor;
-import org.springframework.ai.chat.memory.ChatMemory;
 import org.springframework.ai.chat.prompt.Prompt;
 import org.springframework.ai.tool.ToolCallbackProvider;
 import org.springframework.core.ParameterizedTypeReference;
@@ -12,6 +10,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
+@Slf4j
 public class AIPromptWithMCPServerService {
 
     private final ChatClient chatClient;
@@ -22,9 +21,10 @@ public class AIPromptWithMCPServerService {
                 .build();
     }
 
-    public <T> List<T> getResponse(Prompt prompt, ParameterizedTypeReference<List<T>> typeReference){
+    public String getResponse(Prompt prompt, ParameterizedTypeReference<String> typeReference){
+        log.info("inside getResponse prompt:{}", prompt.getContents());
         return this.chatClient.prompt(prompt)
                 .call()
-                .entity(typeReference);
+                .content();
     }
 }

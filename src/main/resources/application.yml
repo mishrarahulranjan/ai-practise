@@ -24,12 +24,15 @@ spring:
         dimension: 1536
     mcp:
       client:
+        enabled: true
+        request-timeout: 60s
+        fail-on-startup: false
         toolcallback:
           enabled: true
-      sse:
-        connections:
-          my-custom-mcp-server:
-            url: http://localhost:8081
+        sse:
+          connections:
+            my-custom-mcp-server:
+              url: http://localhost:8081
   datasource:
     url: jdbc:postgresql://localhost:5432/postgres
     username: postgres

@@ -59,15 +59,14 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-logging'
     implementation 'org.springframework.boot:spring-boot-starter-logging'
 
-    implementation 'org.springframework.ai:spring-ai-starter-mcp-client'
+    implementation 'org.springframework.boot:spring-boot-starter-webflux'
     implementation 'org.springframework.ai:spring-ai-starter-mcp-client-webflux'
+
     implementation 'org.springframework.ai:spring-ai-vector-store'
     implementation 'org.springframework.ai:spring-ai-pgvector-store'
     implementation 'org.springframework.ai:spring-ai-advisors-vector-store'
     implementation 'org.springframework.ai:spring-ai-starter-vector-store-pgvector'
     implementation 'org.postgresql:postgresql'
-    implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.6.0'
-
 
     // Ollama AI profile
     if (!project.hasProperty('aiProfile') || project.property('aiProfile') == 'ollama-ai') {
