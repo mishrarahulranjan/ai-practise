@@ -41,3 +41,20 @@ Run as a Spring Boot application
 ##Test
 
 ![](images/test.jpeg)
+
+
+### To enable MCP client and server interaction flow.
+
+**Sample MCP server**
+git clone https://github.com/mishrarahulranjan/spring-ai-mcp-server
+- start SpringAIMCPServerStarter
+
+**enable MCP client app**
+Set config as true in application yml.
+
+_spring.ai.mcp.client.enabled = true
+spring.ai.mcp.client.toolcallback.enabled = true_
+
+
+
+

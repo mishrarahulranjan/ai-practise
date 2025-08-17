@@ -24,11 +24,11 @@ spring:
         dimension: 1536
     mcp:
       client:
-        enabled: true
+        enabled: false
         request-timeout: 60s
         fail-on-startup: false
         toolcallback:
-          enabled: true
+          enabled: false
         sse:
           connections:
             my-custom-mcp-server:
