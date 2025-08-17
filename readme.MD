@@ -52,8 +52,8 @@ git clone https://github.com/mishrarahulranjan/spring-ai-mcp-server
 **enable MCP client app**
 Set config as true in application yml.
 
-_spring.ai.mcp.client.enabled = true
-spring.ai.mcp.client.toolcallback.enabled = true_
+_`spring.ai.mcp.client.enabled = true
+spring.ai.mcp.client.toolcallback.enabled = true_`
 
 
 
